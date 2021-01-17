@@ -1,15 +1,17 @@
 #include <stdio.h>
 #include <math.h>
 
+void todo(int a, int b, int c) {
+    printf("%.0f %.0f %.0f\n", ceil(a), floor(c), round(b));
+}
+
 int main()
 {
-    double area;
-    double base;
-    double exp;
+    double ipt[3];
     
-    printf("정사각형의 넓이 : ");
-    scanf("%lf", &area);
-    printf("정사각형의 한 변의 길이 : %f \n", sqrt(area));
+    scanf("%lf %lf %lf", &ipt[0], &ipt[1], &ipt[2]);
+    
+    
     
     return 0;
 }
