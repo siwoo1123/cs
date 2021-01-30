@@ -1,21 +1,27 @@
 #include <stdio.h>
 
-int arr[102] = {
-    0, 1, 2
-};
+int a, b, c; // a,b,c선언
 
-void newarr(int n)
+void input()
 {
-    if (n > 100) return;
-    arr[n] = (arr[n - 1] * arr[n - 2]) % 100;
-    newarr(n + 1);
+    scanf("%d %d %d", &a, &b, &c); // 입력
+    a *= b * c; // 계산값을 a에 저장
+}
+
+int gasan(int a)
+{
+    if(a == 0) return 1; // a가 0이면 1을 리턴
+    int r = a % 10; //  int변수 r에 a를 10으로 나눈 나머지 대입
+    if (r == 0) { // r이 0이면
+        r = 1; // r에 1대입
+    }
+    return gasan(a / 10) * r; // gasan(a/10)에 r을 곱한값 리턴
 }
 
 int main()
 {
-    int N;
-    scanf("%d", &N);
-    newarr(3);
-    printf("%d\n", arr[N]);
+    input();
+    int result = gasan(a);
+    printf("%d\n", result);
     return 0;
 }
