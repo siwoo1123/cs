@@ -3,16 +3,16 @@
 
 int main()
 {
-    int i, len, realLen;
-    char str[100];
-    
-    scanf("%s %d", str, &len);
-    
-    realLen = strlen(str);
-    
-    for (i = realLen; i >= len; i--) {
-        printf("%c", str[i - 1]);
+    int a, b, c, d, e;
+    char str[200];
+
+    scanf("%d %d %d %d %d", &a, &b, &c, &d, &e);
+    sprintf(str, "%d%d%d%d%d", a, b, c, d, e);
+
+    int i, len = strlen(str);
+    for (i = 0; i < len; i++) {
+        if (i != 0 &&i % 3 == 0) printf("\n");
+        printf("%c", str[i]);
     }
-    printf("\n");
     return 0;
 }
