@@ -3,16 +3,28 @@
 
 int main()
 {
-    int a, b, c, d, e;
-    char str[200];
+    char ipts[5][100], ch, st[100];
+    int flag = 0;
 
-    scanf("%d %d %d %d %d", &a, &b, &c, &d, &e);
-    sprintf(str, "%d%d%d%d%d", a, b, c, d, e);
-
-    int i, len = strlen(str);
-    for (i = 0; i < len; i++) {
-        if (i != 0 &&i % 3 == 0) printf("\n");
-        printf("%c", str[i]);
+    for (int i = 0; i < 5; i++) {
+        scanf("%s", ipts[i]);
+        //printf("%d ", i);
+        //puts(ipts[i]);
     }
+
+    scanf(" %c", &ch);
+    scanf("%s", st);
+
+    for (int i = 0; i < 5; i++) {
+        if(strchr(ipts[i], ch) || strstr(ipts[i], st)) {
+            puts(ipts[i]);
+            flag = 1;
+        }
+    }
+
+    if(!flag) {
+        puts("none");
+    }
+
     return 0;
 }
