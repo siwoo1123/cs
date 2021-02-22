@@ -1,30 +1,35 @@
 #include <stdio.h>
-#include <string.h>
 
-int main()
+struct children
 {
-    char ipts[5][100], ch, st[100];
-    int flag = 0;
+    char name[21];
+    int tall;
+};
 
-    for (int i = 0; i < 5; i++) {
-        scanf("%s", ipts[i]);
-        //printf("%d ", i);
-        //puts(ipts[i]);
-    }
+struct children min(children arr[], int n)
+{
+    children mindata = arr[0];
 
-    scanf(" %c", &ch);
-    scanf("%s", st);
-
-    for (int i = 0; i < 5; i++) {
-        if(strchr(ipts[i], ch) || strstr(ipts[i], st)) {
-            puts(ipts[i]);
-            flag = 1;
+    for (int i = 0; i < n; i++) {
+        if (mindata.tall > arr[i].tall){
+            mindata = arr[i];
         }
     }
 
-    if(!flag) {
-        puts("none");
+    return mindata;
+}
+
+int main()
+{
+    children saving[5], mins;
+
+    for (int i = 0; i < 5; i++) {
+        scanf("%s %d", saving[i].name, &saving[i].tall);
     }
+
+    mins = min(saving, 5);
+
+    printf("%s %d", mins.name, mins.tall);
 
     return 0;
 }
